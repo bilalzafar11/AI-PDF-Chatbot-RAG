@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI PDF Chatbot</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <!-- Background Glow -->
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loader-box">
+            <div class="spinner"></div>
+            <h3>Processing PDF...</h3>
+            <p id="loading-text">Please wait while AI prepares your document.</p>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div class="app-shell">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <!-- Brand -->
+            <div class="brand">
+                <div class="brand-logo">
+                    🤖
+                </div>
+
+                <div class="brand-content">
+                    <h1>AI PDF Chatbot</h1>
+                    <p>Gemini + RAG Powered Assistant</p>
+                </div>
+            </div>
+
+            <!-- AI Badge -->
+            <div class="ai-badge">
+                ⚡ Smart AI Document Search
+            </div>
+
+            <!-- Upload Panel -->
+            <section class="panel">
+
+                <div class="panel-header">
+                    <h2>📄 Upload PDF</h2>
+                </div>
+
+                <form id="upload-form">
+
+                    <label for="pdf-file" class="upload-box">
+
+                        <div class="upload-icon">📁</div>
+
+                        <p>Drag & Drop PDF</p>
+                        <span>or click to browse</span>
+
+                        <input
+                            id="pdf-file"
+                            type="file"
+                            accept="application/pdf"
+                            required
+                            hidden
+                        >
+                    </label>
+
+                    <button type="submit" id="process-btn">
+                        🚀 Process PDF
+                    </button>
+
+                </form>
+
+                <br>
+
+                <div class="action-buttons">
+
+                    <button id="load-previous-btn" class="secondary-btn">
+                        📂 Load Previous Data
+                    </button>
+                    <br>
+                    
+
+                <br>
+
+                    <button id="clear-chat-btn" class="danger">
+                        🗑️ Clear Chat
+                    </button>
+
+                    <br>
+                </div>
+
+            </section>
+
+            <!-- Status -->
+            <section class="panel status-panel">
+
+                <div class="panel-header">
+                    <h2>📊 Status</h2>
+                </div>
+
+                <div id="status-message" class="status-box">
+                    PDF has not been processed yet.
+                </div>
+
+            </section>
+
+            <!-- Features -->
+            <section class="panel feature-panel">
+
+                <div class="feature-card">
+                    <span>⚡</span>
+                    <p>Fast AI Search</p>
+                </div>
+
+                <div class="feature-card">
+                    <span>🧠</span>
+                    <p>Gemini AI Answers</p>
+                </div>
+
+                <div class="feature-card">
+                    <span>📚</span>
+                    <p>PDF Knowledge Base</p>
+                </div>
+
+            </section>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Hero -->
+            <section class="hero-section">
+
+                <div>
+                    <h1>Chat With Your PDFs</h1>
+
+                    <p>
+                        Upload any PDF document and ask questions using
+                        AI-powered Retrieval-Augmented Generation (RAG).
+                    </p>
+                </div>
+
+                <div class="hero-badge">
+                    Gemini AI
+                </div>
+
+            </section>
+
+            <!-- Chat -->
+            <section class="chat-panel">
+
+                <!-- Header -->
+                <div class="chat-header">
+
+                    <div>
+                        <h2>💬 AI Chat</h2>
+                        <span id="chat-status">
+                            Waiting for PDF upload...
+                        </span>
+                    </div>
+
+                    <div class="online-status">
+                        <span class="status-dot"></span>
+                        AI Online
+                    </div>
+
+                </div>
+
+                <!-- Chat History -->
+                <div id="chat-history" class="chat-history">
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            🤖
+                        </div>
+
+                        <h3>Welcome to AI PDF Chatbot</h3>
+
+                        <p>
+                            Upload your PDF document and start chatting
+                            with your files instantly.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Question Form -->
+                <form id="question-form" class="question-form">
+
+                    <div class="input-wrapper">
+
+                        <input
+                            id="question"
+                            type="text"
+                            placeholder="Ask anything from your PDF..."
+                            autocomplete="off"
+                            disabled
+                        >
+
+                        <button type="submit" disabled>
+                            ➤
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- JS -->
+    <script src="/static/app.js"></script>
+
+</body>
+</html>
